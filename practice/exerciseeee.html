@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bind....live...delegate...on..dang.. that's confusing</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	
+</head>
+<body>
+<h2>click me</h2>
+
+<h2>click me</h2>
+
+<h2>click me</h2>
+
+	<script type="text/javascript" src="jquery-1.7.1.js"></script>
+	<script>
+	(function(){
+		$('h2').on('click', function(){    //$('h2').live('click', function(){ ...$(this).clone().appendTo('body');
+			//$('h2').delegate('click', function(){  $('h2').undelegate('click', function(){
+			//console.log('clicked');
+			//var cloned = $(this).clone();
+			//console.log(cloned);
+			//$(this).clone().appendTo('body');
+			$(this).clone(true).appendTo('body');
+		});
+	})();
+	</script>
+	
+</body>
+</html>

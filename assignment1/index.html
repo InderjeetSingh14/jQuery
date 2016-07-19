@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	   <title>jQuery</title>
+	   <link href="bootstrap.min.css" rel="stylesheet">
+	   <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="head">
+	       <h1>Search movie by Title</h1>
+        </div>
+        <div class="body-Section">
+	       <form>
+		      <input type="text" name="searchText" class="textSearch">
+		      <input type="button" name="searchButton" value="Search" class="searchClick">
+	       </form>
+        </div>
+
+        <div class="table-Section">
+	       <table id="dataTable" align="center">
+                <tr class="headings">
+                    <td>Poster</td>
+                    <!--<td>Description</td>-->
+                    <td>Title</td>
+                    <td>Year</td>
+                    <td>imdbId</td>
+                    <td>Type</td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            window.jQuery || document.write('<script src="jquery-1.8.2.min.js"><\/script>')
+        </script>
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

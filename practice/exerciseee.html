@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery events 201</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+<dl>
+	<dt>what;s your name?</dt>
+	<dd>inderjeet singh</dd>
+	<dt>what;s your name?</dt>
+	<dd>inderjeet singh</dd>
+	<dt>what;s your name?</dt>
+	<dd>inderjeet singh</dd>
+	<dt>what;s your name?</dt>
+	<dd>inderjeet singh</dd>
+	<dt>what;s your name?</dt>
+	<dd>inderjeet singh</dd>
+	
+</dl>
+
+	<script type="text/javascript" src="jquery-1.7.1.js"></script>
+	<script>
+		(function(){
+			var dd=$('dd');
+			//dd.hide();
+			//dd.addClass('hide');
+			dd.filter(':nth-child(n+4)').addClass('hide');
+
+			$('dt').on('mouseenter', function() {      //$('dl').on('mouseenter', 'dt', function()
+				$(this).next().siblings('dd').hide();
+				$(this).next().show();
+				//$(this)
+				//     .next()
+				//			.slideDown(200)
+				//			.siblings('dd')
+				//				.slideUp(200);
+			});
+		})();
+	</script>
+	
+</body>
+</html>

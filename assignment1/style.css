@@ -1,0 +1,42 @@
+.head,.body-Section{
+	text-align: center;
+	margin-top: 30px;
+}
+
+
+.table-Section{
+	margin-top: 20px;
+}
+
+
+table, td {
+    border: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;s
+    font-weight: bold;
+}
+
+
+h1{
+    color: #0B2F97;
+    text-align: center;
+    border-top: solid;
+    border-width: 2px;
+    border-bottom: solid;
+    border-color: #5670BB;
+    border-radius: 20%;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  td{
+    color: #55565A;
+    font-size: 15px;
+  }
+
+  .headings{
+    color: #4F5874;
+    font-size: 20px;
+  }
