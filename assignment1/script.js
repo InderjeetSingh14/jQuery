@@ -12,13 +12,14 @@ $(document).ready(function(){
             dataType:'json',
             success: function(jsonData)
             {   
-                $("#dataTable").show();
+                $("#dataTable").hide();
                 var json=jsonData;
                 json=json.Search;
                 $(json).each(function(i,val){
                     $.each(val,function(k,v){
                         if(l!=json.length)
                         {
+                            $("#dataTable").show();
                             var table = document.getElementById("dataTable");
                             var row = table.insertRow(l);
 

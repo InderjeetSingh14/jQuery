@@ -18,6 +18,10 @@ table, td {
     font-weight: bold;
 }
 
+table{
+  display: none;
+}
+
 
 h1{
     color: #0B2F97;
