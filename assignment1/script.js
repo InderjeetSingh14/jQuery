@@ -25,15 +25,15 @@ $(document).ready(function(){
 
                              var cell1 = row.insertCell(0);
                              var cell2 = row.insertCell(1);
-                            var cell3 = row.insertCell(2);
-                            var cell4 = row.insertCell(3);
-                            var cell5 = row.insertCell(4);
+                            //var cell3 = row.insertCell(2);
+                            //var cell4 = row.insertCell(3);
+                           // var cell5 = row.insertCell(4);
 
                             cell1.innerHTML = "<img src="+json[l].Poster+">";
-                            cell2.innerHTML = json[l].Title;
-                            cell3.innerHTML = json[l].Year;
-                            cell4.innerHTML = json[l].imdbID;
-                            cell5.innerHTML = json[l].Type;
+                            cell2.innerHTML = "<tr> Title : "+json[l].Title+"<br></tr>"+"<tr> Year : "+json[l].Year+"<br></tr>"+"<tr> imdbID : "+json[l].imdbID+"<br></tr>"+"<tr> Type : "+json[l].Type+"<br></tr>";
+                            //cell3.innerHTML = json[l].Year;
+                            //cell4.innerHTML = json[l].imdbID;
+                           // cell5.innerHTML = json[l].Type;
                             l=l+1;
                         }
                     
