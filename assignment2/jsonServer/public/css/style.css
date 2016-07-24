@@ -1,0 +1,111 @@
+
+.head{
+  position: fixed;
+  align-items: center;
+  border-radius: 17px 15px 60px 60px;
+  background: url("../image/head.jpg") no-repeat;
+}
+
+img{
+  border-radius: 30%;
+  width: 100px;
+  margin: 10px;
+  margin-left: -10px;
+}
+
+.body-Section{
+  text-align: center;
+  margin-top: 200px;
+}
+
+
+.table-Section{
+	margin-top: 20px;
+}
+
+
+table, td {
+    border: 1px solid white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+table{
+  display: none;
+}
+
+
+h1{
+    color: lightgrey;
+    text-align: center;
+    border-top: solid;
+    border-width: 2px;
+    border-bottom: solid;
+    border-color: grey;
+    border-radius: 20%;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .headings{
+    color: white;
+    font-size: 20px;
+    border-style: solid;
+    border-color: lightgrey;
+    text-align: center;
+    border-width: 2px;
+    border-bottom-width: 4px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 3px;
+  }
+  
+  tr{
+    color: #B6D3D8;
+    text-align: center;
+  }
+
+  body{
+    background: url("../image/background.jpg") no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+  }
+
+  .addClick, .searchClick{
+    border-radius: 20px;
+    text-align: center;
+    background-color: grey;
+    font-weight: bolder;
+  }
+
+
+  .addClick{
+    margin-top: 15px;
+    width: 300px;
+  }
+
+  .textSearch{
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 20px;
+    width: 300px;
+  }
+
+  marquee{
+    color: lightgrey;
+    margin-top: 0px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 3px;
+  }
+
+  .updateClick, .deleteClick{
+    background-color: #B6D3D8;
+    color: black;
+    font-weight: bolder;
+    border-radius: 10px 10px;
+    margin: 5px;
+  }
+
+  #myModal, #updateModal, #deleteModal{
+    text-align: center;
+  }

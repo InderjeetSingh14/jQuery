@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>jQuery</title>
+        <!-- Website Title & Description for Search Engine purposes -->
+        <title></title>
+        <meta name="description" content="">
+        
+        <!-- Mobile viewport optimized -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <!-- Bootstrap CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           
+        <!-- Include Modernizr in the head, before any other Javascript -->
+        <script src="js/modernizr-2.6.2.min.js"></script>
+	   
+	    <link href="css/style.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'><!--google fonts css file link-->
+    </head>
+
+    <body class="container">
+        <div class="head container">
+           <img src="image/icon.png" class="img-responsive pull-left">
+	       <h1>Contact Book</h1>
+           <marquee><h4>Communication Became Even Easier and Faster...</h4></marquee>
+        </div>
+        <div class="body-Section container">
+	       <form>
+		      <input type="text" name="searchText" class="textSearch">
+		      <input type="button" name="searchButton" value="Search" class="searchClick">
+	       </form>
+           <form>
+              <input type="button" value="Add New Record" class="addClick" data-toggle="modal" href="#myModal">
+           </form>
+        </div>
+
+        <div class="container">
+            <div class="table-Section">
+	           <table id="dataTable" class="table">
+                    <tr class="headings">
+                        <td>Name</td>
+                        <td>Country</td>                    
+                        <td>Company</td>
+                        <td>e-mail</td>
+                        <td>Phone</td>
+                        <td>Address</td>
+                        <td>Registered</td>
+                        <td>Emergency Contact</td>
+                        <td>Update/Delete</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Add New Contact Record</h4>
+                    </div><!-- end modal-header -->
+                    <div class="modal-body">
+                        <p><small class="text-muted">Please fill out the information below</small></p>                                    
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputName">Full Name</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputName" placeholder="Name" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCountry">Country</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputCountry" placeholder="Country" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCompany">Company</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputCompany" placeholder="Company Name" type="text">
+                                </div>
+                            </div>
+                                                                           
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputEmail" placeholder="Email" type="email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputPhone">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputPhone" placeholder="Phone Number" type="number">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputAddress">Address</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" id="inputAddress" placeholder="Address" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <p><small>Emergency Contact</small></p>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmergencyContact">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="inputEmergencyContact" placeholder="EmergencyContact" type="number">
+                                </div>
+                            </div>    
+                            
+                        </form>
+                    </div><!-- end modal-body -->
+                                            
+                    <div class="modal-footer">
+                        <button class="btn add btn-primary" type="button" id="add">Add Record</button> <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end myModal -->
+
+        <div class="modal fade" id="updateModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Update Contact Record</h4>
+                    </div><!-- end modal-header -->
+                    <div class="modal-body">
+                        <p><small class="text-muted">Please fill out the information Updated</small></p>                                    
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputName">Full Name</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updateName" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCountry">Country</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updateCountry" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCompany">Company</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updateCompany" type="text">
+                                </div>
+                            </div>
+                                                                           
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updateEmail" type="email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputPhone">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updatePhone" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputAddress">Address</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" id="updateAddress" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputRegistered">Registered</label>
+                                 <div class="col-lg-10">
+                                    <input class="form-control" id="registered" type="text" readonly="true">
+                                </div>
+                            </div>
+
+                            <p><small>Emergency Contact</small></p>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmergencyContact">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="updateEmergencyContact" type="text">
+                                </div>
+                            </div>    
+                            
+                        </form>
+                    </div><!-- end modal-body -->
+                                            
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" id="update">Update</button> <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end updateModal -->
+
+        <div class="modal fade" id="deleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Delete Contact Record! Sure?</h4>
+                    </div><!-- end modal-body -->
+                    </div><!-- end modal-header -->               
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" id="deleteConfirm">Delete</button> <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end updateModal -->
+
+        <!-- All Javascript at the bottom of the page for faster page loading -->
+        
+        <!-- First try for the online version of jQuery-->
+        <script src="http://code.jquery.com/jquery.js"></script>
+    
+        <!-- If no online access, fallback to our hardcoded version of jQuery -->
+        <script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+    
+        <!-- Bootstrap JS -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/searchScript.js"></script>
+        <script src="js/addScript.js"></script>
+        
+    </body>
+
+</html>
