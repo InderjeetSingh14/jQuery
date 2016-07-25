@@ -114,8 +114,7 @@ $(document).ready(function(){
                                         x[5].innerHTML = updateItem.address;
                                         x[6].innerHTML = updateItem.registered;
                                         x[7].innerHTML = updateItem.emergencyContact;
-                                        x[8].innerHTML = '<button type="submit" data-toggle="modal" href="#updateModal" class="updateClick" id="'+id+'">Update</button>'+'<button type="submit" class="deleteClick" data-toggle="modal" href="#deleteModal"  id="'+id+'">Delete</button>';
-                                                                                
+                                                                               
                                     },
                                     error: function()
                                     {
