@@ -44,6 +44,7 @@ $(document).ready(function(){
                 });
                 if(count>0){
                     $("#dataTable").show();
+                    $(".table-bordered").css("display", "block");
                     $('#dataTable').find('tr').click(function(){
                         var loop=1;
                         var register;
@@ -124,7 +125,7 @@ $(document).ready(function(){
                                     success: function(result) {
                                     alert('deleted successfully');
                                     $('#deleteModal').modal('hide');
-                                    $(".searchClick").click();
+                                    document.getElementById(id).closest('tr').remove()
                                     },
                                     error: function(result){alert('deleting... Error Occurred in Deletion');}
                                 });       

@@ -20,12 +20,12 @@
     </head>
 
     <body class="container">
-        <div class="head container">
+        <div class="navbar navbar-fixed-top">
            <img src="image/icon.png" class="img-responsive pull-left">
 	       <h1>Contact Book</h1>
            <marquee><h4>Communication Became Even Easier and Faster...</h4></marquee>
         </div>
-        <div class="body-Section container">
+        <div class="body-Section">
 	       <form>
 		      <input type="text" name="searchText" class="textSearch">
 		      <input type="button" name="searchButton" value="Search" class="searchClick">
@@ -35,9 +35,9 @@
            </form>
         </div>
 
-        <div class="container">
-            <div class="table-Section">
-	           <table id="dataTable" class="table">
+        <div class="table-Section" id="no-more-tables">
+            <div class="container">
+	           <table id="dataTable" class="col-sm-12 table-bordered table-condensed">
                     <tr class="headings">
                         <td>Name</td>
                         <td>Country</td>                    
