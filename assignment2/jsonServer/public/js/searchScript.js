@@ -105,7 +105,17 @@ $(document).ready(function(){
                                     {   
                                         alert(updateItem.name+"'s Record Updated Successfully");
                                         $('#updateModal').modal('hide');
-                                        $(".searchClick").click();                                        
+                                        var x = document.getElementById(id).closest('tr').cells;
+                                        x[0].innerHTML = updateItem.name;
+                                        x[1].innerHTML = updateItem.nationality;
+                                        x[2].innerHTML = updateItem.company;
+                                        x[3].innerHTML = updateItem.email;
+                                        x[4].innerHTML = updateItem.phone;
+                                        x[5].innerHTML = updateItem.address;
+                                        x[6].innerHTML = updateItem.registered;
+                                        x[7].innerHTML = updateItem.emergencyContact;
+                                        x[8].innerHTML = '<button type="submit" data-toggle="modal" href="#updateModal" class="updateClick" id="'+id+'">Update</button>'+'<button type="submit" class="deleteClick" data-toggle="modal" href="#deleteModal"  id="'+id+'">Delete</button>';
+                                                                                
                                     },
                                     error: function()
                                     {
@@ -125,7 +135,7 @@ $(document).ready(function(){
                                     success: function(result) {
                                     alert('deleted successfully');
                                     $('#deleteModal').modal('hide');
-                                    document.getElementById(id).closest('tr').remove()
+                                    document.getElementById(id).closest('tr').remove();
                                     },
                                     error: function(result){alert('deleting... Error Occurred in Deletion');}
                                 });       
