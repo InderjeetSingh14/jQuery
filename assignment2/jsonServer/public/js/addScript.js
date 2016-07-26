@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    if(document.getElementById("dataTable").rows.length < 2){
+        $(".table-bordered").css("display","none");
+    }
     $(".add").click(function(){
         var addItem={
         "name": $("#inputName").val(),

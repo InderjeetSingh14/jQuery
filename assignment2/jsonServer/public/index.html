@@ -23,6 +23,9 @@
         <div class="navbar navbar-fixed-top">
            <img src="image/icon.png" class="img-responsive pull-left">
 	       <h1>Contact Book</h1>
+           <form class="pull-right">
+              <input type="button" value="Open Book" class="openClick">
+           </form>
            <marquee><h4>Communication Became Even Easier and Faster...</h4></marquee>
         </div>
         <div class="body-Section">
@@ -221,15 +224,16 @@
         <!-- All Javascript at the bottom of the page for faster page loading -->
         
         <!-- First try for the online version of jQuery-->
-        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
     
         <!-- If no online access, fallback to our hardcoded version of jQuery -->
-        <script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
-    
+       <!--  <script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+     -->
         <!-- Bootstrap JS -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/searchScript.js"></script>
         <script src="js/addScript.js"></script>
+        <script src="js/openBook.js"></script>
         
     </body>
 

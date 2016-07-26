@@ -66,6 +66,7 @@ h1{
   tr{
     color: #B6D3D8;
     text-align: center;
+    margin:10px;
   }
 
   body{
@@ -74,7 +75,7 @@ h1{
     align-items: center;
   }
 
-  .addClick, .searchClick{
+  .addClick, .searchClick, .openClick{
     border-radius: 20px;
     text-align: center;
     background-color: grey;
@@ -112,6 +113,7 @@ h1{
     text-align: center;
   }
 
+  
   @media (max-width: 767px){
 
    h1{
@@ -128,14 +130,12 @@ h1{
 
 }
 
-
-
-
 @media only screen and (max-width: 1199px) {
 /* Force table to not be like tables anymore */
 
 #no-more-tables tbody,
 #no-more-tables td,
+.table-bordered,
 #no-more-tables tr {
 display: block;
 }

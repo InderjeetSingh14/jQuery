@@ -1,9 +1,8 @@
 $(document).ready(function(){
-    var search = function(start){
-        var searchItem=$(".textSearch").val().toLowerCase();
+    var open = function(start){
         $.ajax({
             type:'GET',
-            url: 'http://localhost:8080/Contacts?name_like='+searchItem+'&_start='+start+'&_limit=7&_sort=name&_order=ASC',   
+            url: 'http://localhost:8080/Contacts?_start='+start+'&_limit=7&_sort=name&_order=ASC',    
             dataType:'json',
             success: function(jsonData)
             {   
@@ -11,8 +10,6 @@ $(document).ready(function(){
                
                 $.each(jsonData,function(i,val){
                    
-                    if(val.name.toLowerCase().includes(searchItem) && searchItem !='' && searchItem !=' ') 
-                    {
                         var table = document.getElementById("dataTable");
                         var row = table.insertRow();
 
@@ -35,9 +32,7 @@ $(document).ready(function(){
                         cell7.innerHTML = val.registered;
                         cell8.innerHTML = val.emergencyContact;
                         cell9.innerHTML = '<button type="submit" data-toggle="modal" href="#updateModal" class="updateClick" id="'+val.id+'">Update</button>'+'<button type="submit" class="deleteClick" data-toggle="modal" href="#deleteModal"  id="'+val.id+'">Delete</button>';
-                            
-                    }
-
+                           
                 });
                 if(jsonData.length>0){
                     $("#dataTable").show();
@@ -87,11 +82,12 @@ $(document).ready(function(){
                                     "email": $("#updateEmail").val(),
                                     "phone": $("#updatePhone").val(),
                                     "address": $("#updateAddress").val(),
+                                    "registered": $("#registered").val(),
                                     "emergencyContact": $("#updateEmergencyContact").val()
                                 };
         
                                 $.ajax({
-                                    type:'PATCH',
+                                    type:'PUT',
                                     url: 'http://localhost:8080/Contacts/'+id,    
                                     dataType:'json',
                                     data: JSON.stringify(updateItem),
@@ -107,6 +103,7 @@ $(document).ready(function(){
                                         x[3].innerHTML = updateItem.email;
                                         x[4].innerHTML = updateItem.phone;
                                         x[5].innerHTML = updateItem.address;
+                                        x[6].innerHTML = updateItem.registered;
                                         x[7].innerHTML = updateItem.emergencyContact;
                                                                                
                                     },
@@ -137,7 +134,7 @@ $(document).ready(function(){
                     
                 }
                 else{
-                    alert('No Record Found');
+                    alert('--- END ---');
                 }
             },
             error: function()
@@ -146,19 +143,21 @@ $(document).ready(function(){
             }
         });
     }
+    
 
-    $(".searchClick").click(function(){
+    $(".openClick").click(function(start){
         var start=0;
         $("#dataTable").find("tr:not(:first)").remove();
-        search(start);
+        open(start);
         $(window).scroll(function(){
-            if($(window).scrollTop() == ($(document).height() - $(window).height())){
-                start=start+7;
-                search(start);
-            }
-        }); 
+                    if($(window).scrollTop() == ($(document).height() - $(window).height())){
+                          start=start+7;
+                          open(start);
+                    }
+                    }); 
     });
+    
+    
 
 });
   
-
