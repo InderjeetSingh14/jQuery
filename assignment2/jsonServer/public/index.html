@@ -12,10 +12,7 @@
         <!-- Bootstrap CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
            
-        <!-- Include Modernizr in the head, before any other Javascript -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
-	   
-	    <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'><!--google fonts css file link-->
     </head>
 
@@ -24,14 +21,14 @@
            <img src="image/icon.png" class="img-responsive pull-left">
 	       <h1>Contact Book</h1>
            <form class="pull-right">
-              <input type="button" value="Open Book" class="openClick">
+              <input type="button" value="Open Book" class="openClick" id="open">
            </form>
            <marquee><h4>Communication Became Even Easier and Faster...</h4></marquee>
         </div>
         <div class="body-Section">
 	       <form>
-		      <input type="text" name="searchText" class="textSearch">
-		      <input type="button" name="searchButton" value="Search" class="searchClick">
+		      <input type="text" placeholder="Name" name="searchText" class="textSearch">
+		      <input type="button" name="searchButton" value="Search" class="searchClick" id="search">
 	       </form>
            <form>
               <input type="button" value="Add New Record" class="addClick" data-toggle="modal" href="#myModal">
@@ -226,14 +223,9 @@
         <!-- First try for the online version of jQuery-->
         <script src="http://code.jquery.com/jquery.min.js"></script>
     
-        <!-- If no online access, fallback to our hardcoded version of jQuery -->
-       <!--  <script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
-     -->
         <!-- Bootstrap JS -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/searchScript.js"></script>
-        <script src="js/addScript.js"></script>
-        <script src="js/openBook.js"></script>
+        <script src="js/fullScript.js"></script>
         
     </body>
 

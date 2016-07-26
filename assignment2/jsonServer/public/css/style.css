@@ -113,8 +113,7 @@ h1{
     text-align: center;
   }
 
-  
-  @media (max-width: 767px){
+@media (max-width: 767px){
 
    h1{
       font-size: 25px;
@@ -135,7 +134,6 @@ h1{
 
 #no-more-tables tbody,
 #no-more-tables td,
-.table-bordered,
 #no-more-tables tr {
 display: block;
 }
