@@ -1,7 +1,8 @@
 $(document).ready(function(){
-
+    var start=0;
+    
     var deleteRow = function(id){
-                    $("#deleteConfirm").one('click',function(){
+                    $("#deleteConfirm").one('click', function(){
                     	$.ajax({
                     		url: 'http://localhost:8080/Contacts/'+id,
                	         	type: 'DELETE',
@@ -9,7 +10,7 @@ $(document).ready(function(){
                	         	success: function(result) {
                	         	alert('deleted successfully');
                	         	$('#deleteModal').modal('hide');
-               	         		document.getElementById(id).closest('tr').remove();
+               	         	document.getElementById(id).closest('tr').remove();
                	         	},
                	         	error: function(result){
                	         		alert('deleting... Error Occurred in Deletion');
@@ -19,7 +20,7 @@ $(document).ready(function(){
                	}
 
     var updateRow = function(id){
-    					$("#update").one('click',function(){
+    					$("#updateConfirm").one('click', function(){
     						var object = createObject();
                         	$.ajax({
                             	type:'PATCH',
@@ -134,26 +135,23 @@ $(document).ready(function(){
                 			dataType:'json',
                 			success: function(jsonData)
                 			{   
-                    			$("#dataTable").hide();
-                   				$.each(jsonData,function(i,val){
+                                if(document.getElementById("dataTable").rows.length == 1){
+                    			   $("#dataTable").hide();
+                   				}
+                                $.each(jsonData,function(i,val){
                    					addRow(val);
                    				});
                    				if(jsonData.length>0){
                         			$("#dataTable").show();
-                        			loadUpdateModal();//load row data in modal
-
-                        			$(".updateClick").one('click',function(){
-                                		var id = this.id;
-                                		updateRow(id);
-                                	});//end update
-
-                                	$(".deleteClick").one('click',function(){
-                                		var id = this.id;
-                                		deleteRow(id);
-                           			});//end delete
+                                    loadUpdateModal();//load row data in modal	                                	
                            		}//end if
                            		else{
-                           			alert('--- END ---');//end of contact book
+                                    if(document.getElementById("dataTable").rows.length == 1){
+                                        alert('--- Empty Book ---');//contact book empty
+                                    }
+                                    else{
+                                        alert('--- END ---');//end of contact book
+                                    }
                            		}
                            	},
                            	error: function()
@@ -172,8 +170,10 @@ $(document).ready(function(){
                 				dataType:'json',
                 				success: function(jsonData)
                 				{   
-                    				$("#dataTable").hide();
-                    				if(searchItem.trim() == ''){
+                    				if(document.getElementById("dataTable").rows.length == 1){
+                                        $("#dataTable").hide();
+                                    }
+                                    if(searchItem.trim() == ''){
                     					alert('Why Searching nothing?');
                     				}
                     				else{
@@ -182,17 +182,7 @@ $(document).ready(function(){
                    					});
                    					if(jsonData.length>0){
                         				$("#dataTable").show();
-                        				loadUpdateModal();//load row data in modal
-
-                        				$(".updateClick").one('click',function(){
-                                			var id = this.id;
-                                			updateRow(id);
-                                		});//end update
-
-                                		$(".deleteClick").one('click',function(){
-                                			var id = this.id;
-                                			deleteRow(id);
-                           				});//end delete
+                                        loadUpdateModal();//load row data in modal
                            			}//end if
                            			else{
                            				if(document.getElementById("dataTable").rows.length == 1){
@@ -258,8 +248,18 @@ $(document).ready(function(){
         searchByName(start);
     });
 
+    $(document).on('click', 'button[class=deleteClick]', function(){
+        var id = this.id;
+        deleteRow(id);
+    });
+    
+    $(document).on('click', 'button[class=updateClick]', function(){
+        var id = this.id;
+        updateRow(id);
+    });
+    
     $(window).scroll(function(){
-        var start=0;
+        
         if($(window).scrollTop() == ($(document).height() - $(window).height())){
             start=start+7;
             if(context == 'search') {
