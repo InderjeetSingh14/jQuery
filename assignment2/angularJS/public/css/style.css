@@ -1,0 +1,194 @@
+[ng\:cloak], [ng-cloak], .ng-cloak{
+  display: none ;
+}
+
+.navbar{
+  border-radius: 17px 15px 60px 60px;
+  background: url("../image/head.jpg") no-repeat;
+}
+
+.container{
+  text-align: center;
+}
+
+h1{
+    color: lightgrey;
+    text-align: center;
+    border-top: solid;
+    border-width: 2px;
+    border-bottom: solid;
+    border-color: grey;
+    border-radius: 20%;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+img{
+  border-radius: 30%;
+  width: 100px;
+  margin: 10px;
+  margin-left: -10px;
+}
+
+.body-Section{
+  text-align: center;
+  margin-top: 200px;
+}
+
+
+.table-Section{
+	margin-top: 20px;
+}
+
+
+table, td {
+    border: 1px solid white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+  .headings{
+    color: white;
+    font-size: 20px;
+    border-style: solid;
+    border-color: lightgrey;
+    text-align: center;
+    border-width: 2px;
+    border-bottom-width: 4px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 3px;
+  }
+  
+  tr{
+    color: #B6D3D8;
+    text-align: center;
+    margin:10px;
+  }
+
+  body{
+    background: url("../image/background.jpg") no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+  }
+
+  #add, #search, #open{
+    border-radius: 20px;
+    text-align: center;
+    background-color: grey;
+    font-weight: bolder;
+  }
+
+  span{
+    font-size: 120%;
+  }
+
+
+  .addClick{
+    margin-top: 15px;
+    /*width: 300px;*/
+  }
+
+  .textSearch{
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 20px;
+    /*width: 300px;*/
+  }
+
+  marquee{
+    color: lightgrey;
+    margin-top: 0px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 3px;
+  }
+
+  .updateClick, .deleteClick{
+    background-color: #B6D3D8;
+    color: black;
+    font-weight: bolder;
+    border-radius: 10px 10px;
+    margin: 5px;
+  }
+
+  #myModal, #updateModal, #deleteModal{
+    text-align: center;
+  }
+
+@media (max-width: 767px){
+
+   h1{
+      font-size: 25px;
+   }
+
+}
+
+@media (max-width: 400px){
+
+   h1{
+      font-size: 15px;
+   }
+
+}
+
+@media only screen and (max-width: 1199px) {
+/* Force table to not be like tables anymore */
+
+#no-more-tables tbody,
+#no-more-tables td,
+#no-more-tables tr {
+display: block;
+}
+
+#no-more-tables tr { border: 1px solid #ccc; }
+  
+#no-more-tables td {
+/* Behave like a "row" */
+border: none;
+border-bottom: 1px solid #eee;
+position: relative;
+padding-left: 58%;
+white-space: normal;
+text-align:left;
+overflow-wrap: break-word;
+word-wrap: break-word;
+}
+ 
+#no-more-tables td:before {
+/* Now like a table header */
+position: absolute;
+/* Top/left values mimic padding */
+top: 6px;
+left: 6px;
+width: 53%;
+padding-right: 10px;
+white-space: normal;
+text-align:left;
+font-weight: bold;
+overflow-wrap: break-word;
+word-wrap: break-word;
+}
+
+/* Hide table headers (but not display: none;, for accessibility) */
+  .headings{ 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr{
+    margin-top: 10px;
+  }
+ 
+/*
+Label the data
+*/
+  td:nth-of-type(1):before { content: "Name";}
+  td:nth-of-type(2):before { content: "Country"; }
+  td:nth-of-type(3):before { content: "Company"; }
+  td:nth-of-type(4):before { content: "e-mail"; }
+  td:nth-of-type(5):before { content: "Phone"; }
+  td:nth-of-type(6):before { content: "Address"; }
+  td:nth-of-type(7):before { content: "Registered"; }
+  tr td:nth-of-type(8):before { content: "Emergency Contact"; }
+  td:nth-of-type(9):before { content: "Update/Delete"; }
+}

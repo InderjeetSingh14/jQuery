@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+  <head>
+    <title>jQuery</title>
+        <!-- Website Title & Description for Search Engine purposes -->
+        <title></title>
+        <meta name="description" content="">
+        
+        <!-- Mobile viewport optimized -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <!-- Bootstrap CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'><!--google fonts css file link-->
+        <!--BOOTSTRAP ICONS-->        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <link href="css/style.css" rel="stylesheet"> <!-- custom css -->
+  </head>
+
+  <body class="container ng-cloak" ng-app="contactBook">
+    <div ng-controller="bookController">
+        <div class="navbar navbar-fixed-top">
+            <img src="image/icon.png" class="img-responsive pull-left">
+            <h1>Contact Book</h1>
+            <form class="pull-right">
+              <button ng-click="openBook(0)" class="openClick btn btn-default" id="open"><span class="glyphicon glyphicon-earphone"></span>  Open Book</button>
+            </form>
+            <marquee><h4>Communication Became Even Easier and Faster...</h4></marquee>
+        </div>
+        <div class="body-Section">
+            <form>
+              <input type="text" placeholder="Name" ng-model="searchName" name="searchText" class="textSearch">
+              <button ng-click="searchBook(0)" class="searchClick btn btn-default" id="search"><span class="glyphicon glyphicon-search"></span>Search</button>
+            </form>
+            <form>
+              <button class="addClick btn btn-default" id="add" data-toggle="modal" href="#myModal"><span class="glyphicon glyphicon-plus-sign"></span>  Add New Record</button>
+            </form>
+        </div>
+
+        <div class="table-Section" id="no-more-tables">
+        <div class="container">
+            <table id="dataTable" class="col-sm-12 table-bordered table-condensed">
+                <tr class="headings"  ng-show="active()">
+                    <td>Name</td>
+                    <td>Country</td>                    
+                    <td>Company</td>
+                    <td>e-mail</td>
+                    <td>Phone</td>
+                    <td>Address</td>
+                    <td>Registered</td>
+                    <td>Emergency Contact</td>
+                    <td>Update/Delete</td>
+                </tr>
+                <tr ng-repeat="contact in contacts" data-toggle="modal" data-target="#orderModal">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.nationality}}</td>                    
+                    <td>{{contact.company}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>{{contact.address}}</td>
+                    <td>{{contact.registered}}</td>
+                    <td>{{contact.emergencyContact}}</td>
+                    <td>
+                    <button type="submit" ng-click="loadUpdateModal(); updateRow(contact.id,$index)" data-toggle="modal" href="#updateModal" class="updateClick"><span class="glyphicon glyphicon-pencil"></span> Update</button>
+                    <button type="submit" class="deleteClick" ng-click="deleteRow(contact.id,$index)" data-toggle="modal" href="#deleteModal"><span class="glyphicon glyphicon-trash"></span>   Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Add New Contact Record</h4>
+                    </div><!-- end modal-header -->
+                    <div class="modal-body">
+                        <p><small class="text-muted">Please fill out the information below</small></p>                                    
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputName">Full Name</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputName" placeholder="Name" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCountry">Country</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputCountry" placeholder="Country" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCompany">Company</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputCompany" placeholder="Company Name" type="text">
+                                </div>
+                            </div>
+                                                                           
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputEmail" placeholder="Email" type="email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputPhone">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputPhone" placeholder="Phone Number" type="number">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputAddress">Address</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" ng-model="inputAddress" placeholder="Address" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <p><small>Emergency Contact</small></p>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmergencyContact">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="inputEmergencyContact" placeholder="EmergencyContact" type="number">
+                                </div>
+                            </div>    
+                            
+                        </form>
+                    </div><!-- end modal-body -->
+                                            
+                    <div class="modal-footer">
+                        <button class="btn add btn-primary" ng-click="addRecord()" data-dismiss="modal" type="button" id="add">Add Record</button> <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end myModal -->
+
+        <div class="modal fade" id="updateModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Update Contact Record</h4>
+                    </div><!-- end modal-header -->
+                    <div class="modal-body">
+                        <p><small class="text-muted">Please fill out the information Updated</small></p>                                    
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputName">Full Name</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updateName" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCountry">Country</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updateCountry" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputCompany">Company</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updateCompany" type="text">
+                                </div>
+                            </div>
+                                                                           
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updateEmail" type="email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputPhone">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updatePhone" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputAddress">Address</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" ng-model="updateAddress" rows="3"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputRegistered">Registered</label>
+                                 <div class="col-lg-10">
+                                    <input class="form-control" ng-model="registered" type="text" readonly="true">
+                                </div>
+                            </div>
+
+                            <p><small>Emergency Contact</small></p>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="inputEmergencyContact">Phone</label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" ng-model="updateEmergencyContact" type="text">
+                                </div>
+                            </div>    
+                            
+                        </form>
+                    </div><!-- end modal-body -->
+                                            
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" data-dismiss="modal" ng-click="updateRecord()" id="updateConfirm">Update</button> <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end updateModal -->
+
+        <div class="modal fade" id="deleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                                                
+                        <h4 class="modal-title">Delete Contact Record! Sure?</h4>
+                    </div><!-- end modal-body -->
+                    </div><!-- end modal-header -->               
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" data-dismiss="modal" ng-click="deleteRecord()" id="deleteConfirm">Delete</button> <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                    </div><!-- end modal-footer -->
+                </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+        </div><!-- end deleteModal -->
+    
+    </div>
+
+        <!--try for the online version of jQuery-->
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- angularJS JS -->
+        <script src="js/angular.min.js"></script>
+        <!-- project JS -->
+        <script src="js/project.js"></script>
+
+  </body>
+</html>
